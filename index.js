@@ -2,11 +2,13 @@ const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const cTable = require('console.table');
 
+require(`dotenv`).config();
+
 // Start SQL Connection
 const db = mysql.createConnection({
   host: `localhost`,
   user: `root`,
-  password: 'password',
+  password: process.env.DB_PASSWORD,
   database: `employee_db`,
 });
 
@@ -63,7 +65,8 @@ const mainMenu = () => {
       },
    ])
    .then((userInput) => {
-    console.log(`Action Selected: ${userInput.menu}`);
+    console.log(`Action Selected: ${userInput.mainMenu}`);
+
 
     switch (userInput.mainMenu) {
 
@@ -461,4 +464,3 @@ const viewEmployeeByManager = () => {
 };
 
 titleScreen();
-mainMenu();
