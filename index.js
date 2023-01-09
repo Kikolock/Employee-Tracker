@@ -84,26 +84,37 @@ const mainMenu = () => {
         break;
         case 'Add a new Role':
         addANewRole();
+        break;
         case 'Add a new Department':
         addANewDepartment();
+        break;
         case 'Update an Employee Role':
         updateAnEmployeeRole();
+        break;
         case 'Update an employee Manager':
         updateManager();
+        break;
         case 'Delete an Employee':
         deleteAnEmployee();
+        break;
         case 'Delete a Role':
         deleteARole();
+        break;
         case 'Delete a Department':
         deleteADepartment();
+        break;
         case 'View Employee by department':
         viewEmployeeByDepartment();
+        break;
         case 'View employee by role':
         viewEmployeeByRole();
+        break;
         case 'View Employee by manager':
         viewEmployeeByManager();
+        break;
         case "View a department's utilized budget":
         viewDepartmentUtilizedBudget();
+        break;
         case 'Exit':
             db.end();
             break;
@@ -158,7 +169,7 @@ const addANewDepartment = () => {
     db.query(`INSERT INTO department(department_name) VALUES(?)`, departmentName,
     function (err, results) {
         if (err) throw err;
-        console.log('results');
+        console.log(results);
         viewAllDepartments();
     });
 });
